@@ -371,3 +371,8 @@ This creates 3 users and 15 financial records across 4 months.
 - Search functionality across records
 - Export records to CSV
 - React frontend dashboard
+
+---
+- GitHub:     https://github.com/priyanshisoni14/Zorvyn-Assignment-Backend
+- Live API:   https://zorvyn-assignment-backend-production.up.railway.app
+- API Docs:   https://documenter.getpostman.com/view/48591316/2sBXiqEUYy
