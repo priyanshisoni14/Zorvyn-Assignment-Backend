@@ -312,6 +312,57 @@ Tokens are obtained by logging in via `POST /api/auth/login` and expire after 7 
 
 ---
 
+## Running Tests
+
+The project includes 50 integration tests across 4 test suites covering all API routes.
+
+### Setup test environment
+
+Create a `.env.test` file inside the `server/` folder:
+```
+PORT=8000
+MONGO_URI=your_mongodb_connection_string_with_test_database
+JWT_SECRET=your_secret_key
+JWT_EXPIRES_IN=7d
+```
+
+> Use a separate database name in your MONGO_URI for tests, for example `finance-dashboard-test` instead of `finance-dashboard`. This keeps test data separate from real data.
+
+### Run tests
+```bash
+npm test
+```
+
+### Test coverage
+
+| Test Suite | Tests | What is covered |
+|---|---|---|
+| auth.test.js | 11 | Register, login, validation, duplicate email |
+| users.test.js | 13 | Get users, update role, update status, delete, access control |
+| records.test.js | 14 | Create, read, update, soft delete, filters, pagination, access control |
+| dashboard.test.js | 12 | Summary, trends, categories, recent activity, role restrictions |
+| **Total** | **50** | **All routes and role based access** |
+
+---
+
+## Seeding the Database
+
+To quickly populate the database with sample data for testing:
+```bash
+npm run seed
+```
+
+This creates 3 users and 15 financial records across 4 months.
+
+**Test accounts created by seed:**
+
+| Role | Email | Password |
+|---|---|---|
+| Admin | admin@test.com | password123 |
+| Analyst | analyst@test.com | password123 |
+| Viewer | viewer@test.com | password123 |
+
+---
 ## Future Improvements
 
 - Refresh token mechanism
